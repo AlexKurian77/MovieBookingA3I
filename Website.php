@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>A³I Website</title>
-    <link rel="icon" href="logo-dark.png">
+    <link rel="icon" href="logo2.png">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Orbitron&family=Poppins:wght@300&display=swap');
@@ -27,13 +27,13 @@
         }
 
         :root {
-            --light: #e7e5e5;
-            --dark: #161414;
+            --light: #161414 ;
+            --dark: #e7e5e5;
         }
 
         * {
-            color: var(--dark);
-            background-color: var(--light);
+            color: var(--light);
+            background-color: var(--dark);
             transition: 0.2s;
         }
 
@@ -54,13 +54,13 @@
             justify-content: center;
             align-items: center;
         }
-
+        
         .list ul {
             list-style: none;
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 60px;
+            gap: 35px;
         }
 
         li {
@@ -90,6 +90,10 @@
             transform: scale(1.2);
         }
 
+        #logout_show:hover #logout{
+            filter: invert(1);
+        }
+
         li:hover:not(.except) {
             transform: scale(1.2);
             transition: 0.3s;
@@ -115,7 +119,7 @@
             height: auto;
             /* padding-top: 40px;
             padding-bottom: 40px; */
-            background-image: url(https://img.freepik.com/free-vector/realistic-black-shimmer-background_23-2150083455.jpg?size=626&ext=jpg&ga=GA1.1.386372595.1698192000&semt=ais);
+            background-image: url(https://c4.wallpaperflare.com/wallpaper/89/553/173/black-background-wood-darker-wallpaper-preview.jpg);
             /* background-image: url(https://freevector-images.s3.amazonaws.com/uploads/vector/preview/40529/White_Background_generated.jpg); */
             /* background-color: white; */
             /* backdrop-filter: blur(4px); */
@@ -134,8 +138,10 @@
             100% {
                 opacity: 1;
             }
+        }   
+        input[type="date"]::-webkit-calendar-picker-indicator {
+            filter: invert(1);
         }
-
         .form-group {
             display: flex;
             flex-direction: column;
@@ -161,7 +167,6 @@
             border-left: 0;
             border-right: 0;
 
-            /* border-end-end-radius: 10px; */
             background: transparent;
             color: wheat;
             text-align: start;
@@ -175,22 +180,18 @@
         }
 
         form {
-            /* background: rgba(255, 255, 255, 0.06); */
             background-color: transparent;
             backdrop-filter: blur(3px);
             width: 43%;
             height: auto;
             margin: 90px;
             padding-bottom: 15px;
-            /* backdrop-filter: blur(3px); */
             border: 1px white solid;
             border-radius: 7%;
-            /* display: none; */
         }
 
         form * {
             background: inherit;
-            /* z-index: 999; */
         }
 
         .aa {
@@ -232,7 +233,6 @@
         .cross {
             position: absolute;
             right: -230px;
-            /* 15px */
             background-color: white;
             color: black;
             border-radius: 50%;
@@ -288,14 +288,12 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: auto;
-            height: 600px;
-            /* border-bottom: 1px solid; */
-            width: 98vw;
-            margin: auto
-                /* min-height: 500px; */
+            min-height: 600px;
+            width: 100vw;
+            margin: auto;
+            gap: 30px;
         }
-
+        
         .content img {
             border-radius: 20px;
         }
@@ -308,14 +306,20 @@
             flex-direction: column;
             align-content: center;
             justify-content: center;
-            /* border: 1px solid; */
             box-shadow: 1px 1px 10px #6b5071;
             border-radius: 20px;
-            margin: 10px 15px;
             transition: 0.4s;
             cursor: pointer;
         }
-
+        @media (max-width: 1040px) {
+            .content{
+                flex-direction: column;
+                gap: 0;
+            }
+            .card{
+                scale: 0.85;
+            }
+        }
         .card:hover {
             transform: scale(1.1);
         }
@@ -327,13 +331,18 @@
 
         .card1:hover .img-img1 {
             filter: blur(5px);
+            opacity: 0.6;
             transition: 0.4s;
         }
-
+        
+        #card1_name,
+        #card2_name,
+        #card3_name{
+            color: #e7e5e5 !important;
+        }
         .hidden {
             opacity: 0;
             transform: translateY(-20px);
-            /* font-size: 100px; */
             transition: opacity 0.5s ease, transform 0.5s ease;
         }
 
@@ -341,20 +350,34 @@
             opacity: 1;
             transform: translateY(0);
         }
-
+        .img1{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 3px;
+        }
+        .img1 *{
+            margin: 0;
+        }
         .content-1 {
             background: transparent;
             font-family: 'Orbitron';
-            font-size: 30px;
+            font-size: 25px;
             position: absolute;
-            color: #e7e5e5;
-            top: 42%;
-            left: 18%;
-            margin: auto;
+            color: white;
             z-index: -1;
-            /* transition: 0.2s; */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-content: center;
+            text-align: center;
         }
-
+        
+        i{
+            align-self: center;
+            justify-content: center;
+            background: transparent;
+        }
         .card1:hover .content-1 {
             z-index: 10;
             transition: 0.2s;
@@ -362,56 +385,63 @@
 
         .content-1 span {
             color: #e7e5e5;
-            position: relative;
-            left: 45px;
             font-size: 15px;
-            margin-top: 15px;
             padding: 10px;
             border-radius: 20px;
             background-color: #c0362e;
             cursor: pointer;
+            text-align: center;
+            
         }
-
-        /* .card1:hover .content-1::before{
-            backdrop-filter: blur(4px);
-            position: absolute;
-            left: 45%;
-            top: 50%;
-            content: 'Oppenheimer';
-            z-index: 998;
-        } */
+        .content-1 a,
+        .content-2 a,
+        .content-3 a{
+            margin-top: 15px;
+        }
         .content-2 {
-            font-size: 23px;
-            left: 29px;
-            margin-bottom: 110px;
+            background: transparent;
+            font-family: 'Orbitron';
+            font-size: 25px;
+            position: absolute;
+            color: #e7e5e5;
+            z-index: -1;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
         }
-
+        
         .content-2 span {
-            /* margin-top: 90px; */
-            top: 15px;
-            left: 60px;
+            color: #e7e5e5;
+            font-size: 15px;
+            padding: 10px;
+            border-radius: 20px;
+            background-color: #c0362e;
+            cursor: pointer;
+            text-align: center;
         }
 
         .content-3 {
+            background: transparent;
+            font-family: 'Orbitron';
             font-size: 25px;
-            left: 40px;
+            position: absolute;
+            color: #e7e5e5;
+            z-index: -1;
             display: flex;
             flex-direction: column;
-            align-items: center;
+            justify-content: center;
+            align-content: center;
+            text-align: center;
         }
 
         .content-3 span {
-            /* margin-top: 20px; */
-            top: 10px;
-            left: 8px;
-            /* left: auto; */
-        }
-
-        i {
-            position: relative;
-            background: transparent;
-            left: auto;
             color: #e7e5e5;
+            font-size: 15px;
+            padding: 10px;
+            border-radius: 20px;
+            background-color: #c0362e;
+            cursor: pointer;
+            text-align: center;
         }
 
         .oppenheimer {
@@ -474,23 +504,22 @@
         }
 
         .oppen-content {
-            /* width: 50%; */
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            /* border: 1px solid; */
+            color: #e7e5e5;
             height: 500px;
-            /* align-items: center;
-            justify-content: center; */
             flex: 1;
         }
 
-        .oppen-content h2 {
+        .oppen-content h2,
+        .oppen-content h3 {
             margin-bottom: 25px;
             color: #e7e5e5;
-            /* color: var(--dark); */
-
+            background-color: rgba(0, 0, 0, 0.221);
+            padding: 7px;
+            border-radius: 10px;
         }
 
         .oppen-content .book {
@@ -556,14 +585,24 @@
             display: flex;
             font-family: 'Orbitron';
             justify-content: space-around;
-            gap: 27px;
+            gap: 5px;
             margin-bottom: 5px;
         }
-
+        .seat-number span,
+        .seat-number1 span,
+        .seat-number2 span,
+        .seat-alpha p,
+        .seat-alpha1 p,
+        .seat-alpha2 p{
+            background-color: rgba(0, 0, 0, 0.221);
+            padding: 5px 8px;
+            color: #FFF;
+            border-radius: 5px;
+        }
         .seat-alpha {
             position: absolute;
-            top: 85px;
-            left: -20px;
+            top: 88px;
+            left: -30px;
             margin-right: 5px;
         }
 
@@ -573,7 +612,7 @@
         }
 
         .seats-selected {
-            position: absolute;
+            position: fixed;
             display: none;
             flex-direction: column;
             justify-content: center;
@@ -583,7 +622,7 @@
             top: 50px;
             height: 70vh;
             width: 60vw;
-            background-image: url(https://img.freepik.com/free-vector/realistic-black-shimmer-background_23-2150083455.jpg?size=626&ext=jpg&ga=GA1.1.386372595.1698192000&semt=ais);
+            background-image: url(https://c4.wallpaperflare.com/wallpaper/89/553/173/black-background-wood-darker-wallpaper-preview.jpg);
             background-repeat: no-repeat;
             background-position: center;
             background-size: 100%;
@@ -641,7 +680,7 @@
             color: #e7e5e5;
         }
         .seats-selected1 {
-            position: absolute;
+            position: fixed;
             display: none;
             flex-direction: column;
             justify-content: center;
@@ -651,7 +690,7 @@
             top: 50px;
             height: 70vh;
             width: 60vw;
-            background-image: url(https://img.freepik.com/free-vector/realistic-black-shimmer-background_23-2150083455.jpg?size=626&ext=jpg&ga=GA1.1.386372595.1698192000&semt=ais);
+            background-image: url(https://c4.wallpaperflare.com/wallpaper/89/553/173/black-background-wood-darker-wallpaper-preview.jpg);
             background-repeat: no-repeat;
             background-position: center;
             background-size: 100%;
@@ -692,18 +731,17 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            /* border: 1px solid; */
             height: 500px;
-            /* align-items: center;
-            justify-content: center; */
             flex: 1;
         }
 
-        .avengers-content h2 {
+        .avengers-content h2,
+        .avengers-content h3{
             margin-bottom: 25px;
             color: #e7e5e5;
-            /* color: var(--dark); */
-
+            background-color: rgba(0, 0, 0, 0.221);
+            border-radius: 10px;
+            padding: 7px;
         }
 
         .avengers-content .book {
@@ -725,14 +763,14 @@
             display: flex;
             font-family: 'Orbitron';
             justify-content: space-around;
-            gap: 27px;
+            gap: 5px;
             margin-bottom: 5px;
         }
 
         .seat-alpha1 {
             position: absolute;
-            top: 85px;
-            left: -20px;
+            top: 88px;
+            left: -30px;
             margin-right: 5px;
         }
         .first-row1 {
@@ -791,7 +829,7 @@
             color: #e7e5e5;
         }
         .seats-selected2 {
-            position: absolute;
+            position: fixed;
             display: none;
             flex-direction: column;
             justify-content: center;
@@ -801,7 +839,7 @@
             top: 50px;
             height: 70vh;
             width: 60vw;
-            background-image: url(https://img.freepik.com/free-vector/realistic-black-shimmer-background_23-2150083455.jpg?size=626&ext=jpg&ga=GA1.1.386372595.1698192000&semt=ais);
+            background-image: url(https://c4.wallpaperflare.com/wallpaper/89/553/173/black-background-wood-darker-wallpaper-preview.jpg);
             background-repeat: no-repeat;
             background-position: center;
             background-size: 100%;
@@ -849,11 +887,13 @@
             flex: 1;
         }
 
-        .batman-content h2 {
+        .batman-content h2,
+        .batman-content h3 {
             margin-bottom: 25px;
             color: #e7e5e5;
-            /* color: var(--dark); */
-
+            background-color: rgba(0, 0, 0, 0.221);
+            border-radius: 10px;
+            padding: 7px;
         }
 
         .batman-content .book {
@@ -875,14 +915,14 @@
             display: flex;
             font-family: 'Orbitron';
             justify-content: space-around;
-            gap: 27px;
+            gap: 5px;
             margin-bottom: 5px;
         }
 
         .seat-alpha2 {
             position: absolute;
-            top: 85px;
-            left: -20px;
+            top: 88px;
+            left: -30px;
             margin-right: 5px;
         }
         .first-row2 {
@@ -922,21 +962,30 @@
             font-size: 30px;
             margin-bottom: 20px;
         }
+        #logout{
+            background:transparent;
+            margin-right: 5px;
+        }
+        #logout_show{
+            display: none;
+        }
     </style>
 </head>
 
 <body>
     <nav class="box hidden">
         <div class="img">
-            <img src="logo.png" width="200" height="130" id="logo">
+            <a href="Website.php"><img src="logo2.png" width="190px" id="logo"></a>
         </div>
         <div class="list">
             <ul>
+                <a href="Website.php"><li><span></span>Home</li></a>
                 <li id="login" class="logintext except" onclick="display();"><span></span>Login</li>
-                <li><span></span>Book</li>
+                <a href="All_Movies.php" onclick="booking();"><li><span></span>All Movies</li></a>
                 <a href="My_Bookings.php" onclick="booking();"><li><span></span>My Bookings</li></a>
-                <li><span></span>Profile</li>
-                <li><img src="night-mode.png" alt="" width="20" height="20" id="themelogo" onclick="theme();" title="Dark Theme"></li>
+                <a href="ProfilePicUpload.php" onclick="booking();"><li><span></span>Profile</li></a>
+                <li id="logout_show" onclick="logout1();"><span></span><img src="https://static-00.iconduck.com/assets.00/log-out-icon-2048x2048-cru8zabe.png" width="15px" id="logout">Log Out</li>
+                <li><img src="light-mode.png" alt="" width="20" height="20" id="themelogo" onclick="changeTheme();" title="Dark Theme"></li>
             </ul>
         </div>
     </nav>
@@ -991,7 +1040,7 @@
                     <button type="button" class="BackArrow" onclick="BackArrow();">←</button>
                     <div class="input-container">
                         <input type="text" id="user" required onfocus="transformLabel(this)" name="username">
-                        <label for="user">Set Username </label>
+                        <label for="user">Set Username</label>
                         <img src="user.png" width="35" height="35" style="filter: invert();">
 
                     </div><br>
@@ -1031,27 +1080,27 @@
     <section class="content box hidden">
         <div class="card card1">
             <div class="img1">
-                <img src="https://m.media-amazon.com/images/M/MV5BMDBmYTZjNjUtN2M1MS00MTQ2LTk2ODgtNzc2M2QyZGE5NTVjXkEyXkFqcGdeQXVyNzAwMjU2MTY@._V1_.jpg" width="300px" height="400px" class="img-img1">
-                <div class="content-1">
-                    Oppenheimer
+                <img src="https://m.media-amazon.com/images/M/MV5BMDBmYTZjNjUtN2M1MS00MTQ2LTk2ODgtNzc2M2QyZGE5NTVjXkEyXkFqcGdeQXVyNzAwMjU2MTY@._V1_.jpg" width="300px" height="400px" class="img-img1" id="first">
+                <div class="content-1" >
+                    <i id="card1_name">Oppenheimer</i>
                     <a href="#oppen"><span>Book Tickets</span></a>
                 </div>
             </div>
         </div>
         <div class="card card1">
             <div class="img1">
-                <img src="https://m.media-amazon.com/images/M/MV5BMTc5MDE2ODcwNV5BMl5BanBnXkFtZTgwMzI2NzQ2NzM@._V1_.jpg" width="300px" height="400px" class="img-img1">
+                <img src="https://m.media-amazon.com/images/M/MV5BMTc5MDE2ODcwNV5BMl5BanBnXkFtZTgwMzI2NzQ2NzM@._V1_.jpg" width="300px" height="400px" class="img-img1" id="second">
                 <div class="content-1 content-2">
-                    Avengers: End Game<br>
+                <i id="card2_name"> Avengers: End Game</i>
                     <a href="#avengers"><span>Book Tickets</span></a>
                 </div>
             </div>
         </div>
         <div class="card card1">
             <div class="img1">
-                <img src="https://images.moviesanywhere.com/bd47f9b7d090170d79b3085804075d41/c6140695-a35f-46e2-adb7-45ed829fc0c0.jpg" width="300px" height="400px" class="img-img1">
+                <img src="https://images.moviesanywhere.com/bd47f9b7d090170d79b3085804075d41/c6140695-a35f-46e2-adb7-45ed829fc0c0.jpg" width="300px" height="400px" class="img-img1" id="third">
                 <div class="content-1 content-3">
-                    The Dark Knight <br><i>(Literally me)</i>
+                <i id="card3_name"> The Dark Knight</i>
                     <a href="#batman"><span>Book Tickets</span></a>
                 </div>
             </div>
@@ -1059,23 +1108,21 @@
     </section>
     <section class="oppenheimer box hidden" id="oppen">
         <div class="seats-selected" style="display: none;" id="seats_selected">
-            <!-- <div class="opacity-kam opac-book-oppen"> -->
             <div id="selected_seats"></div>
             <div class="book" onclick="booked2();">Book Tickets</div>
             <button type="button" onclick="seat_display();">X</button>
-            <!-- </div> -->
         </div>
         <div class="oppen-image" id="oppen-image">
             <div class="oppen-image-image">
-                <img src="https://m.media-amazon.com/images/M/MV5BMDBmYTZjNjUtN2M1MS00MTQ2LTk2ODgtNzc2M2QyZGE5NTVjXkEyXkFqcGdeQXVyNzAwMjU2MTY@._V1_.jpg" width="300px" height="430px">
+                <img src="https://m.media-amazon.com/images/M/MV5BMDBmYTZjNjUtN2M1MS00MTQ2LTk2ODgtNzc2M2QyZGE5NTVjXkEyXkFqcGdeQXVyNzAwMjU2MTY@._V1_.jpg" width="300px" height="430px" id="first_Details">
             </div>
             <div class="oppen-content">
-                <h2>OPPENHEIMER</h2>
+                <h2 id="detail1_name">OPPENHEIMER</h2>
                 <h3>Timing: Today at 7pm</h3>
+                <h3>Ticket Price: 200Rs</h3>
                 <div class="seats box1 hidden" id="seats_div">
                     <span class="select-seats box1 hidden">Select Seats</span>
                     <br>
-                    <!-- <div id="selected-seats" class="selected"></div> -->
                     <div class="seat-number">
                         <span style="margin-left: 3px;">1</span>
                         <span>2</span>
@@ -1111,25 +1158,23 @@
     </section>
     <section class="avengers box hidden" id="avengers">
         <div class="seats-selected" style="display: none;" id="seats_selected1">
-            <!-- <div class="opacity-kam opac-book-oppen"> -->
             <div id="selected_seats1"></div>
             <div class="book1"  onclick="booked1();">
                 Book Tickets
             </div>
             <button type="button" onclick="seat_display3();">X</button>
-            <!-- </div> -->
         </div>
         <div class="avengers-image" id="avengers-image">
             <div class="avengers-image-image">
-                <img src="https://m.media-amazon.com/images/M/MV5BMTc5MDE2ODcwNV5BMl5BanBnXkFtZTgwMzI2NzQ2NzM@._V1_.jpg" width="300px" height="430px">
+                <img src="https://m.media-amazon.com/images/M/MV5BMTc5MDE2ODcwNV5BMl5BanBnXkFtZTgwMzI2NzQ2NzM@._V1_.jpg" width="300px" height="430px" id="second_Details">
             </div>
             <div class="avengers-content">
-                <h2>Avengers</h2>
+                <h2 id="detail2_name">Avengers</h2>
                 <h3>Timing: Today at 9pm</h3>
+                <h3>Ticket Price: 250Rs</h3>
                 <div class="seats box2 hidden" id="seats_div1">
                     <span class="select-seats1 box2 hidden">Select Seats</span>
                     <br>
-                    <!-- <div id="selected-seats" class="selected"></div> -->
                     <div class="seat-number1">
                         <span style="margin-left: 3px;">1</span>
                         <span>2</span>
@@ -1165,25 +1210,23 @@
     </section>
     <section class="batman box hidden" id="batman">
         <div class="seats-selected" style="display: none;" id="seats_selected2">
-            <!-- <div class="opacity-kam opac-book-oppen"> -->
             <div id="selected_seats2"></div>
             <div class="book2"  onclick="booked();">
                 Book Tickets
             </div>
             <button type="button" onclick="seat_display4();">X</button>
-            <!-- </div> -->
         </div>
         <div class="batman-image" id="batman-image">
             <div class="batman-image-image">
-                <img src="https://images.moviesanywhere.com/bd47f9b7d090170d79b3085804075d41/c6140695-a35f-46e2-adb7-45ed829fc0c0.jpg" width="300px" height="430px">
+                <img src="https://images.moviesanywhere.com/bd47f9b7d090170d79b3085804075d41/c6140695-a35f-46e2-adb7-45ed829fc0c0.jpg" width="300px" height="430px" id="third_Details">
             </div>
             <div class="batman-content">
-                <h2>Batman</h2>
+                <h2 id="detail3_name">Batman</h2>
                 <h3>Timing: Today at 10pm</h3>
+                <h3>Ticket Price: 200Rs</h3>
                 <div class="seats box3 hidden" id="seats_div2">
                     <span class="select-seats2 box3 hidden">Select Seats</span>
                     <br>
-                    <!-- <div id="selected-seats" class="selected"></div> -->
                     <div class="seat-number2">
                         <span style="margin-left: 3px;">1</span>
                         <span>2</span>
@@ -1219,8 +1262,17 @@
     </section>
     <script>
         let login1 = false;
+        let change123 = document.getElementById('login');
+        let username1;
+        let logout = document.getElementById('logout_show');
     </script>
     <?php
+    if(isset($_SESSION['user-website'])) {
+        $username = $_SESSION['user-website'];
+    } 
+    else {
+        $username = ''; 
+    }
     $count = 0;
     $count1 = 0;
     if (isset($_GET['submit2'])) {
@@ -1229,15 +1281,15 @@
         $pass = $_GET['password'];
         $dob = $_GET['dob'];
 
-        $conn = mysqli_connect("localhost", "root", "alex", "movie_ticket",4306);
+        $conn = mysqli_connect("localhost", "root", "", "movie_ticket",4306);
 
         if (!$conn) {
             echo "<script>";
             echo "alert('Couldn't Connect to database')";
-            echo "</script>";
+            echo "</>";
             die("Failed to connect: " . mysqli_connect_error());
-        } else {
-
+        } 
+        else {
             $select_e = $conn->prepare("SELECT * FROM details WHERE E_mail = ?");
             $select_e->bind_param("s", $email);
             $select_e->execute();
@@ -1251,8 +1303,9 @@
             if (!empty($data_e) || !empty($data_u)) {
                 echo "<script>";
                 echo "alert('This E-mail or Username is already registered');";
-                echo "</script>";
-            } else {
+                echo "</scrip>";
+            } 
+            else {
                 $insert = $conn->prepare("INSERT INTO details (Username, Password, E_mail, DOB) VALUES (?, ?, ?, ?)");
                 $insert->bind_param("ssss", $user, $pass, $email, $dob);
                 if ($insert->execute()) {
@@ -1267,45 +1320,48 @@
                 }
             }
         }
-    } else if (isset($_GET['submit1'])) {
+    } 
+    else if (isset($_GET['submit1'])) {
         $email1 = $_GET['email2'];
         $password = $_GET['password1'];
-        $conn = new mysqli("localhost", "root", "alex", "movie_ticket",4306);
+        $conn = new mysqli("localhost", "root", "", "movie_ticket",4306);
         if (!$conn) {
             die("Failed to connect: " . mysqli_connect_error());
-        } else {
+        } 
+        else {
             $select = $conn->prepare("SELECT * from details where E_mail = ?");
             $select->bind_param("s", $email1);
             $select->execute();
             $select_result = $select->get_result();
             $data = $select_result->fetch_all(MYSQLI_ASSOC);
-            $javauser = $data[0]['Username'];
             if (!empty($data)) {
                 $_SESSION['user-website'] = $data[0]['Username'];
                 if ($data[0]['Password'] === $password) {
                     echo "<script>";
                     echo "login1 = true;";
-                    echo "let change123 = document.getElementById('login');";
-                    echo "let username1 = '" . $data[0]['Username'] . "';";
-                    // echo "change.textContent = 'Welcome!';";
+                    echo "username1 = '" . $data[0]['Username'] . "';";
                     echo "change123.textContent = 'Welcome! ' + username1;";
                     echo "change123.onclick = '';";
                     echo "change123.style = '';";
                     echo "change123.className = 'except';";
                     echo "change123.style.cursor = 'text';";
+                    echo "logout.style.display = 'flex';";
                     echo "</script>";
-                } elseif ($data[0]['Password'] != $password) {
+                } 
+                elseif ($data[0]['Password'] != $password) {
                     echo "<script>";
                     echo "alert('Wrong Password')";
                     echo "</script>";
-                } elseif ($data[0]['E_mail'] != $email1) {
+                } 
+                elseif ($data[0]['E_mail'] != $email1) {
                     echo "<script>";
                     echo "alert('Invalid E-mail')";
                     echo "</script>";
                 } else {
                     $count1++;
                 }
-            } else {
+            } 
+            else {
                 echo "<script>";
                 echo "alert('This E-mail is not registered');";
                 echo "</script>";
@@ -1318,14 +1374,23 @@
     <!-- Javascript below -->
 
     <script>
-        // let login1 = false;
-        // let javauser = '';
-        // console.log(javauser);
+        <?php if($username != ''): ?>
+            change123 = document.getElementById('login');
+            username1 = "<?php echo $username; ?>";
+            change123.textContent = 'Welcome! ' + username1;
+            change123.onclick = '';
+            change123.style = '';
+            change123.className = 'except';
+            change123.style.cursor = 'text';
+            logout.style.display = 'flex';
+            login1 = true;
+        <?php endif; ?>
+        document.cookie = "username="+username1+";";
         const divs = document.querySelectorAll('.box');
         divs.forEach((div, index) => {
             setTimeout(() => {
                 div.classList.add('visible');
-            }, index * 800); // Adjust the delay (in milliseconds) as needed
+            }, index * 200);
         });
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
@@ -1341,30 +1406,100 @@
                 }
             });
         });
-
+        
         function theme() {
-            let logo = document.getElementById("logo");
-            let theme = document.getElementById("themelogo");
+            let theme1 = document.getElementById("themelogo");
             let root = document.documentElement;
             let oppen_image = document.getElementById("oppen-image");
+            let avengers_image = document.getElementById("avengers-image");
+            let batman_image = document.getElementById("batman-image");
+            let logout_image = document.getElementById("logout");
+            let cookies = document.cookie.split(";");
+            let cookArr = [];
+            let the;
+            let found = false;
+            cookies.forEach(ele => {
+                cookArr.push(ele.split("="));
+            });
+            
+            cookArr.forEach(ele => {
+                if(ele[0].trim() == "theme"){
+                    the = ele[1].trim();
+                    found = true;
+                }
+            });
+            if (found){
+                if(the == "light"){
+                    theme1.src = "night-mode.png";
+                    theme1.title = "Dark Mode";
+                    oppen_image.style.background = "rgb(255,255,255,0.121)";
+                    avengers_image.style.background = "rgb(255,255,255,0.121)";
+                    batman_image.style.background = "rgb(255,255,255,0.121)";
+                    logout_image.style.filter = "none";
+                    let light = getComputedStyle(root).getPropertyValue("--light").trim();
+                    let dark = getComputedStyle(root).getPropertyValue("--dark").trim();
+                    root.style.setProperty("--dark", dark);
+                    root.style.setProperty("--light", light);
+                    document.cookie = "theme=light;";
+                }
+                else{
+                    theme1.src = "light-mode.png";
+                    theme1.title = "Light Mode";
+    
+                    oppen_image.style.background = "rgb(0,0,0,0.421)";
+                    avengers_image.style.background = "rgb(0,0,0,0.421)";
+                    batman_image.style.background = "rgb(0,0,0,0.421)";
+                    logout_image.style.filter = "invert(1)";
+
+                    let light = getComputedStyle(root).getPropertyValue("--light").trim();
+                    let dark = getComputedStyle(root).getPropertyValue("--dark").trim();
+                    root.style.setProperty("--dark", light);
+                    root.style.setProperty("--light", dark);
+                    document.cookie = "theme=dark;";
+                }
+            }
+            else{
+                logout_image.style.filter = "invert(1)";
+                document.cookie = "theme=dark;";
+                theme();
+            }
+        }
+        theme();
+        function changeTheme(){
+            let logo = document.getElementById("logo");
+            let theme = document.getElementById("themelogo");
+            let oppen_image = document.getElementById("oppen-image");
+            let avengers_image = document.getElementById("avengers-image");
+            let batman_image = document.getElementById("batman-image");
+            let logout_image = document.getElementById("logout");
+            let root = document.documentElement;
             if (theme.src.endsWith("night-mode.png")) {
-                logo.src = "logo-dark.png";
                 theme.src = "light-mode.png";
                 theme.title = "Light Theme";
-                oppen_image.style.backgroundColor = "rgba(0, 0, 0, 0.421)";
                 // getComputedStyle(root).getPropertyValue('--main-color');
                 // root.style.setProperty('--main-color', 'red')
 
+                oppen_image.style.background = "rgb(0,0,0,0.421)";
+                avengers_image.style.background = "rgb(0,0,0,0.421)";
+                batman_image.style.background = "rgb(0,0,0,0.421)";
+                logout_image.style.filter = "invert(1)";
+
+                document.cookie = "theme=dark;"
                 let darkColor = getComputedStyle(root).getPropertyValue('--dark').trim();
                 let lightColor = getComputedStyle(root).getPropertyValue('--light').trim();
-
+                
                 root.style.setProperty('--dark', lightColor);
                 root.style.setProperty('--light', darkColor);
-            } else if (theme.src.endsWith("light-mode.png")) {
-                logo.src = "logo.png";
+            } 
+            else if (theme.src.endsWith("light-mode.png")) {
                 theme.src = "night-mode.png";
                 theme.title = "Dark Theme";
-                oppen_image.style.backgroundColor = "rgba(255, 255, 255, 0.121)";
+                document.cookie = "theme=light;"
+
+                oppen_image.style.background = "rgb(255,255,255,0.121)";
+                avengers_image.style.background = "rgb(255,255,255,0.121)";
+                batman_image.style.background = "rgb(255,255,255,0.121)";
+                logout_image.style.filter = "none";
 
                 let darkColor = getComputedStyle(root).getPropertyValue('--dark').trim();
                 let lightColor = getComputedStyle(root).getPropertyValue('--light').trim();
@@ -1378,8 +1513,7 @@
         }
 
         function transformLabel(input) {
-            // Move the label to its transformed position
-            const label = input.nextElementSibling; // Get the label element
+            const label = input.nextElementSibling;
             label.style.transform = "translateY(-15px)";
         }
 
@@ -1462,13 +1596,11 @@
         function cross() {
             let display1 = document.getElementById("login-section");
             display1.style.display = "none";
-            // display.style.transition = "0.3s";
         }
 
         function cross1() {
             let display1 = document.getElementById("sign-section");
             display1.style.display = "none";
-            // display.style.transition = "0.3s";
         }
 
         function sign() {
@@ -1486,7 +1618,6 @@
                 sign.style.position = "absolute";
                 sign.style.top = "400px";
                 alert("The passwords do not match");
-                // sign.style.marginTop = "10px";
                 event.preventDefault();
             } else {
                 sign.textContent = "";
@@ -1500,7 +1631,6 @@
                 let wrong_pass = document.getElementById('wrong_pass');
                 wrong_pass.textContent = 'Wrong password';
                 wrong_pass.style.color = 'red';
-                wrong_pass.style.backgroundColor = 'red';
                 event.preventDefault();
             }
         }
@@ -1553,17 +1683,19 @@
         }
 
         let use_alert = false;
+        let Tickets = 0;
         function seat_green_count() {
-            
-         
             let selected = document.getElementById("selected_seats");
             let loop_seat = document.getElementsByClassName("seats-seats");
             let duplicate_seat = "";
+            let Ticket_Count = 0;
             for (i = 0; i < loop_seat.length; i++) {
                 if (loop_seat[i].style.backgroundColor == "lightgreen") {
                     duplicate_seat = duplicate_seat + "  " + loop_seat[i].id;
+                    Ticket_Count++;
                 }
             }
+            Tickets = Ticket_Count;
             if (duplicate_seat == "") {
                 selected.textContent = "No seats selected";
                 use_alert = false;
@@ -1608,7 +1740,7 @@
             divs.forEach((div, index) => {
                 setTimeout(() => {
                     div.classList.add('visible');
-                }, index * 500); // Adjust the delay (in milliseconds) as needed
+                }, index * 500);
             });
         }
         let use_alert1 = false;
@@ -1616,11 +1748,14 @@
             let selected = document.getElementById("selected_seats1");
             let loop_seat = document.getElementsByClassName("seats-seats1");
             let duplicate_seat = "";
+            let Ticket_Count = 0;
             for (i = 0; i < loop_seat.length; i++) {
                 if (loop_seat[i].style.backgroundColor == "lightgreen") {
                     duplicate_seat = duplicate_seat + "  " + loop_seat[i].id;
+                    Ticket_Count++;
                 }
             }
+            Tickets = Ticket_Count;
             if (duplicate_seat == "") {
                 selected.textContent = "No seats selected";
                 use_alert1 = false;
@@ -1655,20 +1790,22 @@
             divs.forEach((div, index) => {
                 setTimeout(() => {
                     div.classList.add('visible');
-                }, index * 500); // Adjust the delay (in milliseconds) as needed
+                }, index * 500);
             });
         }
-
         let use_alert2 = false;
         function seat_green_count2() {
             let selected = document.getElementById("selected_seats2");
             let loop_seat = document.getElementsByClassName("seats-seats2");
             let duplicate_seat = "";
+            let Ticket_Count = 0;
             for (i = 0; i < loop_seat.length; i++) {
                 if (loop_seat[i].style.backgroundColor == "lightgreen") {
                     duplicate_seat = duplicate_seat + "  " + loop_seat[i].id;
+                    Ticket_Count++;
                 }
             }
+            Tickets = Ticket_Count;
             if (duplicate_seat == "") {
                 selected.textContent = "No seats selected";
                 use_alert2 = false;
@@ -1685,35 +1822,62 @@
                 seat_selected.style.display = "flex";
             }
         }
+        function splitOnCaps(word) {
+            return word.split(/(?=[A-Z])/).join(' ');
+        }
+        let arr = [];
         function booked(){
-            // let booked = document.getElementById("selected_seats");
-            if(use_alert2){
-                alert("Successfully Booked The Dark Knight");
-                window.location.reload();
+            if(!login1){
+                alert("Login first");
+                event.preventDefault();
             }
             else{
-                alert("No seats are selected");
+                if(use_alert2){
+                    document.cookie = "Movie_name = "+splitOnCaps(arr[2])+";";
+                    document.cookie = "price = "+200+";";
+                    document.cookie = "tickets = "+Tickets+";";
+                    open('payment_gateway.php');
+                }
+                else{
+                    alert("No seats are selected");
+                }
             }
+            
         }
         function booked1(){
-            // let booked = document.getElementById("selected_seats");
-            if(use_alert1){
-                alert("Successfully Booked Avengers: End Game");
-                window.location.reload();
+            if(!login1){
+                alert("Login first");
+                event.preventDefault();
             }
             else{
-                alert("No seats are selected");
+                if(use_alert1){
+                    document.cookie = "Movie_name = "+splitOnCaps(arr[1])+";";
+                    document.cookie = "price = "+250+";";
+                    document.cookie = "tickets = "+Tickets+";";
+                    open('payment_gateway.php');
+                }
+                else{
+                    alert("No seats are selected");
+                }
             }
         }
         function booked2(){
-            // let booked = document.getElementById("selected_seats");
-            if(use_alert){
-                alert("Successfully Booked Oppenheimer");
-                window.location.reload();
+            if(!login1){
+                alert("Login first");
+                event.preventDefault();
             }
             else{
-                alert("No seats are selected");
+                if(use_alert){
+                    document.cookie = "Movie_name = "+splitOnCaps(arr[0])+";";
+                    document.cookie = "price = "+200+";";
+                    document.cookie = "tickets = "+Tickets+";";
+                    open('payment_gateway.php');
+                }
+                else{
+                    alert("No seats are selected");
+                }
             }
+            
         }
         function booking(){
             if(login1 == false){
@@ -1721,8 +1885,142 @@
                 event.preventDefault();
             }
         }
-        theme();
+        function randomize(){
+            let movies = ["Oppenheimer","TheDarkKnight","AvengersEndGame","KungFuPanda","GodzillaXKong1","Shaitaan","Yodha","DunePartTwo","DemonSlayerMovie","ManjummelBoys","TheOmen","12thFail","Maidaan","MadgaonExpress"];
+            let first = document.getElementById("oppen");
+            let second = document.getElementById("avengers");
+            let third = document.getElementById("batman");
+            let first_card = document.getElementById("first");
+            let second_card = document.getElementById("second");
+            let third_card = document.getElementById("third");
+            let first_Details = document.getElementById("first_Details");
+            let second_Details = document.getElementById("second_Details");
+            let third_Details = document.getElementById("third_Details");
+            let card1_name = document.getElementById("card1_name");
+            let card2_name = document.getElementById("card2_name");
+            let card3_name = document.getElementById("card3_name");
+            let detail1_name = document.getElementById("detail1_name");
+            let detail2_name = document.getElementById("detail2_name");
+            let detail3_name = document.getElementById("detail3_name");
+            let obj = {};
+            let i = 0;
+            while (i !== 3) {
+                let r = Math.floor(Math.random() * movies.length);
+                if (!obj[r]) {
+                    obj[r] = true;
+                    arr.push(movies[r]);
+                    i++;
+                }
+            }
+            first.style.backgroundImage = "url(" +arr[0]+"Back.jpg)";
+            first_card.src = arr[0]+".jpg";
+            first_Details.src = arr[0]+".jpg";
+            if(arr[0] == "TheDarkKnight"){
+                card1_name.innerHTML = "The Dark Knight";
+                detail1_name.innerHTML = "The Dark Knight";
+            }
+            else if(arr[0] == "AvengersEndGame"){
+                card1_name.innerHTML = "Avengers: End Game";
+                detail1_name.innerHTML = "Avengers: End Game";
+            }
+            else if(arr[0] == "KungFuPanda"){
+                card1_name.innerHTML = "Kung Fu Panda 4";
+                detail1_name.innerHTML = "Kung Fu Panda 4";
+            }
+            else if(arr[0] == "GodzillaXKong1"){
+                card1_name.innerHTML = "Godzilla X Kong";
+                detail1_name.innerHTML = "Godzilla X Kong";
+            }
+            else if(arr[0] == "DunePartTwo"){
+                card1_name.innerHTML = "Dune: Part Two";
+                detail1_name.innerHTML = "Dune: Part Two";
+            }
+            else if(arr[0] == "DemonSlayerMovie"){
+                card1_name.innerHTML = "Demon Slayer: Movie";
+                detail1_name.innerHTML = "Demon Slayer: Movie - To the Hashira Training";
+            }
+            else{
+                card1_name.innerHTML = splitOnCaps(arr[0]);
+                detail1_name.innerHTML = splitOnCaps(arr[0]);
+            }
+            
+            second.style.backgroundImage = "url(" +arr[1]+"Back.jpg)";
+            second_card.src = arr[1]+".jpg";
+            second_Details.src = arr[1]+".jpg";
+            if(arr[1] == "TheDarkKnight"){
+                card2_name.innerHTML = "The Dark Knight";
+                detail2_name.innerHTML = "The Dark Knight";
+            }
+            else if(arr[1] == "AvengersEndGame"){
+                card2_name.innerHTML = "Avengers: End Game";
+                detail2_name.innerHTML = "Avengers: End Game";
+            }
+            else if(arr[1] == "KungFuPanda"){
+                card2_name.innerHTML = "Kung Fu Panda 4";
+                detail2_name.innerHTML = "Kung Fu Panda 4";
+            }
+            else if(arr[1] == "GodzillaXKong1"){
+                card2_name.innerHTML = "Godzilla X Kong";
+                detail2_name.innerHTML = "Godzilla X Kong";
+            }
+            else if(arr[1] == "DunePartTwo"){
+                card2_name.innerHTML = "Dune: Part Two";
+                detail2_name.innerHTML = "Dune: Part Two";
+            }
+            else if(arr[1] == "DemonSlayerMovie"){
+                card2_name.innerHTML = "Demon Slayer: Movie";
+                detail2_name.innerHTML = "Demon Slayer: Movie - To the Hashira Training";
+            }
+            else{
+                card2_name.innerHTML = splitOnCaps(arr[1]);
+                detail2_name.innerHTML = splitOnCaps(arr[1]);
+            }
+            third.style.backgroundImage = "url(" +arr[2]+"Back.jpg)";
+            third_card.src = arr[2]+".jpg";
+            third_Details.src = arr[2]+".jpg";
+            if(arr[2] == "TheDarkKnight"){
+                card3_name.innerHTML = "The Dark Knight";
+                detail3_name.innerHTML = "The Dark Knight";
+            }
+            else if(arr[2] == "AvengersEndGame"){
+                card3_name.innerHTML = "Avengers: End Game";
+                detail3_name.innerHTML = "Avengers: End Game";
+            }
+            else if(arr[2] == "KungFuPanda"){
+                card3_name.innerHTML = "Kung Fu Panda 4";
+                detail3_name.innerHTML = "Kung Fu Panda 4";
+            }
+            else if(arr[2] == "GodzillaXKong1"){
+                card3_name.innerHTML = "Godzilla X Kong";
+                detail3_name.innerHTML = "Godzilla X Kong";
+            }
+            else if(arr[2] == "DunePartTwo"){
+                card3_name.innerHTML = "Dune: Part Two";
+                detail3_name.innerHTML = "Dune: Part Two";
+            }
+            else if(arr[2] == "DemonSlayerMovie"){
+                card3_name.innerHTML = "Demon Slayer: Movie";
+                detail3_name.innerHTML = "Demon Slayer: Movie - To the Hashira Training";
+            }
+            else{
+                card3_name.innerHTML = splitOnCaps(arr[2]);
+                detail3_name.innerHTML = splitOnCaps(arr[2]);
+            }
+        }
+        function logout1(){
+            if(confirm("Do you want to log out?")){
+                var xhr = new XMLHttpRequest();
+                xhr.open('GET', 'clear_session.php', true);
+                xhr.send();
+                window.location.href = "Website.php";
+            }
+        }
+        randomize();
+        window.addEventListener('unload', function() {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'clear_session.php', true);
+            xhr.send();
+        });
     </script>
 </body>
-
 </html>
