@@ -1,0 +1,156 @@
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+:root {
+    --light:  #161414;
+    --dark: #b9b9b9 ;
+}
+body {
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+}
+
+.profile-card {
+    width: 100%;
+    max-width: 600px;
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    margin: 20px;
+}
+
+.profile-content {
+    text-align: center;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: fadeInUp 1s ease forwards;
+}
+
+.profile-picture {
+    width: 140px;
+    height: 140px;
+    background-color: #ccc;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    overflow: hidden;
+    animation: pulse 1s infinite alternate;
+    border: 5px solid grey;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.profile-picture img{
+    object-fit: contain;
+}
+.profile-name {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+.profile-description {
+    color: #666;
+    animation: fadeIn 1s ease forwards;
+}
+
+.social-icons {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    animation: fadeIn 1s ease forwards;
+}
+
+.social-icons li {
+    margin: 0 10px;
+}
+
+.social-icons a {
+    color: #333;
+    font-size: 24px;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #77c2ff;
+}
+
+.contact-info {
+    animation: fadeInUp 1s ease forwards;
+}
+
+.contact-info strong {
+    margin-right: 5px;
+    color: #333;
+}
+
+.contact-info p {
+    margin-bottom: 10px;
+    color: #666;
+    animation: fadeIn 1s ease forwards;
+}
+
+.contact-info form {
+    display: none;
+    animation: fadeIn 1s ease forwards;
+}
+
+#fileInput{
+    scale: 5;
+    border-radius: 50%;
+    width: 140px;
+    height: 140px;
+    opacity: 0;
+}
+
+
+.profile-picture:hover .pic{
+    opacity: 0.5;
+}
+.profile-picture:hover .new_pic{
+    display: flex;
+    transition: 0.4s;
+    opacity: 1;
+}
+.change-pics{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.new_pic{
+    position: absolute;
+    background-color: transparent;
+    display: none;
+    transition: 0.4s;
+    filter: invert(1);
+}
+.new_pic img{
+    background-color: transparent;
+    width: 100px;
+    height: 100px;
+}
+.pic img{
+    object-fit: contain;
+}
+.about{
+    position: absolute;
+}

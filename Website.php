@@ -42,6 +42,7 @@
             width: 98vw;
             margin: auto;
             border-bottom: 1px solid;
+            z-index: 100;
         }
 
         .img {
@@ -89,7 +90,9 @@
             transition: 0.4s;
             transform: scale(1.2);
         }
-
+        li:hover img{
+            filter: none;
+        }
         #logout_show:hover #logout{
             filter: invert(1);
         }
@@ -126,7 +129,7 @@
             background-position: center;
             background-repeat: no-repeat;
             background-size: 100% 100%;
-            z-index: 100;
+            z-index: 1200;
             animation: in-animation 0.3s;
         }
 
@@ -292,6 +295,7 @@
             width: 100vw;
             margin: auto;
             gap: 30px;
+            z-index: -1;
         }
         
         .content img {
@@ -341,11 +345,11 @@
             color: #e7e5e5 !important;
         }
         .hidden {
+            z-index: -10;
             opacity: 0;
             transform: translateY(-20px);
             transition: opacity 0.5s ease, transform 0.5s ease;
         }
-
         .visible {
             opacity: 1;
             transform: translateY(0);
@@ -492,7 +496,6 @@
         .oppen-image img {
             box-shadow: 1px 1px 10px var(--dark);
             border-radius: 20px;
-            margin-left: 100px;
         }
 
         .oppen-image-image {
@@ -509,8 +512,8 @@
             justify-content: center;
             align-items: center;
             color: #e7e5e5;
-            height: 500px;
             flex: 1;
+            height: 0;
         }
 
         .oppen-content h2,
@@ -714,7 +717,6 @@
         .avengers-image img {
             box-shadow: 1px 1px 10px var(--dark);
             border-radius: 20px;
-            margin-left: 100px;
         }
 
         .avengers-image-image {
@@ -731,8 +733,9 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 500px;
             flex: 1;
+            height: 0;
+
         }
 
         .avengers-content h2,
@@ -863,7 +866,6 @@
         .batman-image img {
             box-shadow: 1px 1px 10px var(--dark);
             border-radius: 20px;
-            margin-left: 100px;
         }
 
         .batman-image-image {
@@ -881,10 +883,11 @@
             justify-content: center;
             align-items: center;
             /* border: 1px solid; */
-            height: 500px;
             /* align-items: center;
             justify-content: center; */
             flex: 1;
+            height: 0;
+
         }
 
         .batman-content h2,
@@ -969,6 +972,101 @@
         #logout_show{
             display: none;
         }
+        .hamburger-menu {
+            position: relative;
+            display: none;
+        }
+        .hamburger-buttons{
+            display: none;
+        }
+        @media screen and (max-width: 1040px) {
+            .list {
+                display: none;
+            }
+            
+            .hamburger-menu {
+                position: absolute;
+                display: flex;
+                width: fit-content;
+                justify-content: flex-end;
+                align-items: center;
+                z-index: 9999;
+                top: 50px;
+                right: 10px;
+                height: max-content;
+            }
+
+            .hamburger-icon {
+                cursor: pointer;
+                padding: 10px;
+            }
+
+            .hamburger-icon span {
+                display: block;
+                width: 25px;
+                height: 3px;
+                background-color: grey;
+                margin-bottom: 5px;
+            }
+
+            .hamburger-icon span:last-child {
+                margin-bottom: 0;
+            }
+            .hamburger-buttons{
+                position: absolute;
+                display: none;
+                flex-direction: column;
+                width: 140px;
+                top: 60px;
+                right: 5px;
+                z-index: 1000 !important;
+                border: 1px solid;
+                scale: 1.2;
+            }
+            .hamburger-buttons ul{
+                display: flex;
+                flex-direction: column;
+                gap:20px;
+                list-style: none;
+                z-index: 100;
+            }
+            li:hover:active{
+                transform: scale(1);
+            }
+            .oppen-image,
+            .avengers-image,
+            .batman-image{
+                flex-direction: column;
+            }
+            .oppen-image .oppen-image-image,
+            .avengers-image .avengers-image-image,
+            .batman-image .batman-image-image{
+                scale: 0.7;
+            }
+            .login{
+                scale: 0.8;
+                left:150px;
+            }
+            .oppen-content,
+            .avengers-content,
+            .batman-content{
+                justify-content: start;
+                height: 0;
+            }
+            .first-row{
+                position: relative;
+                z-index: 999;
+            }
+            .oppen-content h2,
+            .oppen-content h3,
+            .avengers-content h2, 
+            .avengers-content h3,
+            .batman-content h2,
+            .batman-content h3
+            {
+                margin-bottom: 0px;
+            }
+        }
     </style>
 </head>
 
@@ -989,7 +1087,25 @@
             </ul>
         </div>
     </nav>
-    <section class="login box hidden" id="login-section">
+    <div class="hamburger-menu" id="hamburger">
+        <div class="hamburger-icon" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="hamburger-buttons" style="display: none; z-index:9999;" id="hamburger-buttons">
+            <ul>
+                <a href="Website.php"><li>Home</li></a>
+                <li id="login1" class="logintext except" onclick="display();">Login</li>
+                <a href="All_Movies.php" onclick="booking();"><li>All Movies</li></a>
+                <a href="My_Bookings.php" onclick="booking();"><li>My Bookings</li></a>
+                <a href="ProfilePicUpload.php" onclick="booking();"><li>Profile</li></a>
+                <li id="logout_show1" onclick="logout1();"><img src="https://static-00.iconduck.com/assets.00/log-out-icon-2048x2048-cru8zabe.png" width="15px" id="logout1">Log Out</li>
+                <li><img src="light-mode.png" alt="" width="20" height="20" id="themelogo1" onclick="changeTheme();" title="Dark Theme"></li>
+            </ul>
+        </div>
+    </div>
+    <section class="login box" id="login-section" style="z-index: 9999;">
         <div class="opacity-kam log-sign">
             <form action="" method="GET">
                 <button type="button" class="cross" onclick="cross();">X</button>
@@ -1030,7 +1146,7 @@
             </form>
         </div>
     </section>
-    <section class="login box hidden" id="sign-section">
+    <section class="login box " id="sign-section" style="z-index: 9999;">
         <div class="opacity-kam log-sign">
             <form action="" method="GET">
                 <button type="button" class="cross" onclick="cross1();">X</button>
@@ -1077,7 +1193,7 @@
         </div>
     </section>
 
-    <section class="content box hidden">
+    <section class="content box ">
         <div class="card card1">
             <div class="img1">
                 <img src="https://m.media-amazon.com/images/M/MV5BMDBmYTZjNjUtN2M1MS00MTQ2LTk2ODgtNzc2M2QyZGE5NTVjXkEyXkFqcGdeQXVyNzAwMjU2MTY@._V1_.jpg" width="300px" height="400px" class="img-img1" id="first">
@@ -1106,7 +1222,7 @@
             </div>
         </div>
     </section>
-    <section class="oppenheimer box hidden" id="oppen">
+    <section class="oppenheimer box " id="oppen">
         <div class="seats-selected" style="display: none;" id="seats_selected">
             <div id="selected_seats"></div>
             <div class="book" onclick="booked2();">Book Tickets</div>
@@ -1156,7 +1272,7 @@
             </div>
         </div>
     </section>
-    <section class="avengers box hidden" id="avengers">
+    <section class="avengers box " id="avengers">
         <div class="seats-selected" style="display: none;" id="seats_selected1">
             <div id="selected_seats1"></div>
             <div class="book1"  onclick="booked1();">
@@ -1208,7 +1324,7 @@
             </div>
         </div>
     </section>
-    <section class="batman box hidden" id="batman">
+    <section class="batman box " id="batman">
         <div class="seats-selected" style="display: none;" id="seats_selected2">
             <div id="selected_seats2"></div>
             <div class="book2"  onclick="booked();">
@@ -1263,8 +1379,10 @@
     <script>
         let login1 = false;
         let change123 = document.getElementById('login');
+        let change12 = document.getElementById('login1');
         let username1;
         let logout = document.getElementById('logout_show');
+        let logout2 = document.getElementById('logout_show1');
     </script>
     <?php
     if(isset($_SESSION['user-website'])) {
@@ -1306,12 +1424,22 @@
                 echo "</scrip>";
             } 
             else {
+                $_SESSION['user-website'] = $user;
                 $insert = $conn->prepare("INSERT INTO details (Username, Password, E_mail, DOB) VALUES (?, ?, ?, ?)");
                 $insert->bind_param("ssss", $user, $pass, $email, $dob);
                 if ($insert->execute()) {
                     $conn->commit();
                     echo "<script>";
-                    echo "alert('Successfully Logged In');";
+                    echo "login1 = true;";
+                    echo "username1 = '" . $user . "';";
+                    echo "change123.textContent = 'Welcome! ' + username1;";
+                    echo "change12.style.display = 'none';";
+                    echo "change123.onclick = '';";
+                    echo "change123.style = '';";
+                    echo "change123.className = 'except';";
+                    echo "change123.style.cursor = 'text';";
+                    echo "logout.style.display = 'flex';";
+                    echo "logout2.style.display = 'flex';";
                     echo "</script>";
                 } else {
                     echo "<script>";
@@ -1341,11 +1469,13 @@
                     echo "login1 = true;";
                     echo "username1 = '" . $data[0]['Username'] . "';";
                     echo "change123.textContent = 'Welcome! ' + username1;";
+                    echo "change12.style.display = 'none';";
                     echo "change123.onclick = '';";
                     echo "change123.style = '';";
                     echo "change123.className = 'except';";
                     echo "change123.style.cursor = 'text';";
                     echo "logout.style.display = 'flex';";
+                    echo "logout2.style.display = 'flex';";
                     echo "</script>";
                 } 
                 elseif ($data[0]['Password'] != $password) {
@@ -1389,9 +1519,10 @@
         const divs = document.querySelectorAll('.box');
         divs.forEach((div, index) => {
             setTimeout(() => {
-                div.classList.add('visible');
+                div.style.opacity = 1;
             }, index * 200);
         });
+        
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -1409,6 +1540,7 @@
         
         function theme() {
             let theme1 = document.getElementById("themelogo");
+            let theme2 = document.getElementById("themelogo1");
             let root = document.documentElement;
             let oppen_image = document.getElementById("oppen-image");
             let avengers_image = document.getElementById("avengers-image");
@@ -1432,6 +1564,8 @@
                 if(the == "light"){
                     theme1.src = "night-mode.png";
                     theme1.title = "Dark Mode";
+                    theme2.src = "night-mode.png";
+                    theme2.title = "Dark Mode";
                     oppen_image.style.background = "rgb(255,255,255,0.121)";
                     avengers_image.style.background = "rgb(255,255,255,0.121)";
                     batman_image.style.background = "rgb(255,255,255,0.121)";
@@ -1445,6 +1579,8 @@
                 else{
                     theme1.src = "light-mode.png";
                     theme1.title = "Light Mode";
+                    theme2.src = "light-mode.png";
+                    theme2.title = "Light Mode";
     
                     oppen_image.style.background = "rgb(0,0,0,0.421)";
                     avengers_image.style.background = "rgb(0,0,0,0.421)";
@@ -1468,14 +1604,17 @@
         function changeTheme(){
             let logo = document.getElementById("logo");
             let theme = document.getElementById("themelogo");
+            let theme2 = document.getElementById("themelogo1");
             let oppen_image = document.getElementById("oppen-image");
             let avengers_image = document.getElementById("avengers-image");
             let batman_image = document.getElementById("batman-image");
             let logout_image = document.getElementById("logout");
             let root = document.documentElement;
-            if (theme.src.endsWith("night-mode.png")) {
+            if (theme.src.endsWith("night-mode.png") || theme2.src.endsWith("night-mode.png")) {
                 theme.src = "light-mode.png";
                 theme.title = "Light Theme";
+                theme2.src = "light-mode.png";
+                theme2.title = "Light Theme";
                 // getComputedStyle(root).getPropertyValue('--main-color');
                 // root.style.setProperty('--main-color', 'red')
 
@@ -1494,6 +1633,8 @@
             else if (theme.src.endsWith("light-mode.png")) {
                 theme.src = "night-mode.png";
                 theme.title = "Dark Theme";
+                theme2.src = "night-mode.png";
+                theme2.title = "Dark Theme";
                 document.cookie = "theme=light;"
 
                 oppen_image.style.background = "rgb(255,255,255,0.121)";
@@ -1717,7 +1858,8 @@
             let seat_selected = document.getElementById("seats_selected");
             if (seat_selected.style.display == "flex") {
                 seat_selected.style.display = "none";
-            } else if (seat_selected.style.display == "none") {
+            }
+            else if (seat_selected.style.display == "none") {
                 seat_selected.style.display = "flex";
             }
             
@@ -1833,7 +1975,7 @@
             }
             else{
                 if(use_alert2){
-                    document.cookie = "Movie_name = "+splitOnCaps(arr[2])+";";
+                    document.cookie = "Movie_name = "+arr[2]+";";
                     document.cookie = "price = "+200+";";
                     document.cookie = "tickets = "+Tickets+";";
                     open('payment_gateway.php');
@@ -1851,7 +1993,7 @@
             }
             else{
                 if(use_alert1){
-                    document.cookie = "Movie_name = "+splitOnCaps(arr[1])+";";
+                    document.cookie = "Movie_name = "+arr[1]+";";
                     document.cookie = "price = "+250+";";
                     document.cookie = "tickets = "+Tickets+";";
                     open('payment_gateway.php');
@@ -1868,7 +2010,7 @@
             }
             else{
                 if(use_alert){
-                    document.cookie = "Movie_name = "+splitOnCaps(arr[0])+";";
+                    document.cookie = "Movie_name = "+arr[0]+";";
                     document.cookie = "price = "+200+";";
                     document.cookie = "tickets = "+Tickets+";";
                     open('payment_gateway.php');
@@ -1886,7 +2028,7 @@
             }
         }
         function randomize(){
-            let movies = ["Oppenheimer","TheDarkKnight","AvengersEndGame","KungFuPanda","GodzillaXKong1","Shaitaan","Yodha","DunePartTwo","DemonSlayerMovie","ManjummelBoys","TheOmen","12thFail","Maidaan","MadgaonExpress"];
+            let movies = ["Oppenheimer","TheDarkKnight","AvengersEndGame","KungFuPanda","GodzillaXKong1","Shaitaan","Yodha","DunePartTwo","DemonSlayerMovie","ManjummelBoys","TheOmen","12thFail","Maidaan","MadgaonExpress","Premalu"];
             let first = document.getElementById("oppen");
             let second = document.getElementById("avengers");
             let third = document.getElementById("batman");
@@ -2007,12 +2149,22 @@
                 detail3_name.innerHTML = splitOnCaps(arr[2]);
             }
         }
+        function toggleMenu() {
+            var menu = document.getElementById('hamburger-buttons');
+            if(menu.style.display == "none"){
+                menu.style.display ="flex";
+            }
+            else{
+                menu.style.display ="none";
+            }
+        }
         function logout1(){
             if(confirm("Do you want to log out?")){
                 var xhr = new XMLHttpRequest();
                 xhr.open('GET', 'clear_session.php', true);
                 xhr.send();
                 window.location.href = "Website.php";
+                document.cookie = "theme = dark;";
             }
         }
         randomize();
