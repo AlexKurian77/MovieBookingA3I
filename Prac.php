@@ -30,7 +30,7 @@
         $conn = mysqli_connect("localhost","root","","movie_ticket",4306);
         if(!$conn){
             die("Failed to connect: ");
-        }KO
+        }
         else{
             $select = $conn->prepare("SELECT * FROM details");
             $select->execute();

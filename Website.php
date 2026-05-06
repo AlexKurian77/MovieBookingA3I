@@ -1082,7 +1082,7 @@
                 <a href="All_Movies.php" onclick="booking();"><li><span></span>All Movies</li></a>
                 <a href="My_Bookings.php" onclick="booking();"><li><span></span>My Bookings</li></a>
                 <a href="ProfilePicUpload.php" onclick="booking();"><li><span></span>Profile</li></a>
-                <li id="logout_show" onclick="logout1();"><span></span><img src="https://static-00.iconduck.com/assets.00/log-out-icon-2048x2048-cru8zabe.png" width="15px" id="logout">Log Out</li>
+                <li id="logout_show" onclick="logout1();"><span></span><img src="logout1.png" width="15px" height="19px" id="logout">Log Out</li>
                 <li><img src="light-mode.png" alt="" width="20" height="20" id="themelogo" onclick="changeTheme();" title="Dark Theme"></li>
             </ul>
         </div>
